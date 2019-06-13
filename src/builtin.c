@@ -186,6 +186,8 @@ static jv f_modf(jq_state *jq, jv input) {
 }
 #endif
 #ifdef HAVE_LGAMMA_R
+extern double lgamma_r(double x, int *sign);
+
 static jv f_lgamma_r(jq_state *jq, jv input) {
   if (jv_get_kind(input) != JV_KIND_NUMBER) {
     return type_error(input, "number required");
